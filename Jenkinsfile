@@ -26,26 +26,14 @@ pipeline {
                 to: 'kebealiounejunior@gmail.com',
                 subject: "BUILD REUSSI - Scan Juice Shop #${env.BUILD_NUMBER}",
                 body: "Le scan SAST est termine avec succes. 42 vulnerabilites trouvees. Rapport en piece jointe.",
-                attachmentsPattern: '**/rapport-auto.txt',
-                smtpServer: 'smtp.gmail.com',
-                smtpPort: '465',
-                useSsl: true,
-                useTls: false,
-                userName: 'kebealiounejunior@gmail.com',
-                password: 'cgem sjns cmbi nguz'
+                attachmentsPattern: '**/rapport-auto.txt'
             )
         }
         failure {
             emailext(
                 to: 'kebealiounejunior@gmail.com',
                 subject: "BUILD ECHOUE - Scan Juice Shop #${env.BUILD_NUMBER}",
-                body: "Le pipeline a echoue. Consulte les logs Jenkins.",
-                smtpServer: 'smtp.gmail.com',
-                smtpPort: '465',
-                useSsl: true,
-                useTls: false,
-                userName: 'kebealiounejunior@gmail.com',
-                password: 'cgem sjns cmbi nguz'
+                body: "Le pipeline a echoue. Consulte les logs Jenkins."
             )
         }
     }
